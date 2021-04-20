@@ -6,19 +6,20 @@ class Tic extends Component{
         super(props);
         this.state={
             player_move:"X",
-            Board:["","","","","","","","",""],
+            Square:["","","","","","","","",""],
             condition: "true"
         }
     }
+    
     buttonClick(index){
         
         if(this.state.condition=="true"){
         let playerturn=this.state. player_move
-        let board = this.state.Board
+        let square = this.state.Square
         console.log("index",index)
-        board[index]=playerturn
-
-        let winning=[
+        square[index]=playerturn
+            
+            let winning=[
             [0,1,2],
             [3,4,5],
             [6,7,8],
@@ -28,17 +29,20 @@ class Tic extends Component{
             [0,4,8],
             [2,4,6]
         ]
+
+       
         let conditions="true"
         for(let i=0;i<winning.length;i++){
             let winer=winning[i]
             let c1=winer[0]
             let c2=winer[1]
             let c3=winer[2]
-            if(board[c1]!=''&&board[c1]==board[c2]&&board[c2]==board[c3]&&board[c3]==board[c1]){
+            if(square[c1]!=''&&square[c1]==square[c2]&&square[c2]==square[c3]&&square[c3]==square[c1]){
                 alert(`winning player ${playerturn}`)
                 conditions="false"
             }
         }
+        
         this.setState({
             condition: conditions
         })
@@ -47,15 +51,15 @@ class Tic extends Component{
         playerturn=(playerturn=="X")?"O":"X"
         this.setState({
             player_move:playerturn,
-            Board : board
+            Square : square
         })}
     }
     render(){
         return(
             <div className="App">
                 <h1>Tic_tac_toe</h1>
-                <div className="board">
-                    {this.state.Board.map((item,index)=><div onClick={()=>this.buttonClick(index)} className="square"><h2>{item}</h2></div>)}
+                <div className="square">
+                    {this.state.Square.map((item,index)=><div onClick={()=>this.buttonClick(index)} className="square"><h2>{item}</h2></div>)}
                 </div>
             </div>
         )
