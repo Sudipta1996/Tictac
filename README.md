@@ -6,7 +6,12 @@ Available Scripts
 In the project directory, you can run:
 
 Import project
-you can directly download from github as a zip file, and your local system you can unzip , and open this folder in vs code, here you see all the files are present.
+you can directly download from github as a zip file, and your local system you can unzip , and open this folder in vs code, here you see all the files are present.cc
+
+Development 
+I am using React Hooks Concept for the createing Square of the Board
+Then I created two function Checkwin And ChooseSquare where get the result
+Show the result In the alert box
 
 For Tic tac toe app
 simple tic tac toe game using state.
